@@ -142,6 +142,7 @@ protected void reduce(Text key, Iterable<Text> values, Context context) throws I
     double sum = 0.0;
     Node sourceNode = new Node();
     for (Text value : values){
+        Node node = Node.fromMR(value.toString());
         
     }
 

@@ -88,7 +88,7 @@ public class Node implements Writable {
         StringBuilder sb = new StringBuilder();
         sb.append(pageRank);
 
-        if (getAdjacentNames() != null) {
+        if (getAdjacentNames() != null && getAdjacentNames().length > 0) {
             sb.append("\t").append(StringUtils.join(getAdjacentNames(), "\t"));
         }
         return sb.toString();
@@ -97,8 +97,17 @@ public class Node implements Writable {
     public static Node fromMR(String value) {
         // 将MR输出字符串转换为Node对象
         String[] parts = StringUtils.split(value, "\t");
+        if (parts.length == 0) {
+            throw new IllegalArgumentException("Invalid input string: " + value);
+        }
+
         Node node = new Node();
-        node.setPageRank(Double.parseDouble(parts[0]));
+        try {
+            node.setPageRank(Double.parseDouble(parts[0]));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("PageRank parsing error for input: " + value, e);
+        }
+
         if (parts.length > 1) {
             String[] adj = new String[parts.length - 1];
             System.arraycopy(parts, 1, adj, 0, parts.length - 1);
@@ -110,13 +119,13 @@ public class Node implements Writable {
     @Override
     public void write(DataOutput out) throws IOException {
         out.writeDouble(pageRank);
-        if (adjacentNames != null) {
+        if (adjacentNames != null && adjacentNames.length > 0) {
             out.writeInt(adjacentNames.length);
             for (String adj : adjacentNames) {
                 Text.writeString(out, adj);
             }
         } else {
-            out.writeInt(0);
+            out.writeInt(0); // 空的邻接节点
         }
     }
 
@@ -133,7 +142,26 @@ public class Node implements Writable {
             adjacentNames = null;
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Node node = (Node) obj;
+
+        if (Double.compare(node.pageRank, pageRank) != 0) return false;
+        return StringUtils.equalsIgnoreCase(StringUtils.join(adjacentNames, "\t"), StringUtils.join(node.adjacentNames, "\t"));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (pageRank ^ (pageRank >>> 32));
+        result = 31 * result + (adjacentNames != null ? StringUtils.join(adjacentNames, "\t").hashCode() : 0);
+        return result;
+    }
 }
+
 
 ```
 
@@ -182,6 +210,7 @@ public class PageRankMapper extends Mapper<Text, Text, Text, Text> {
     }
 }
 
+
 ```
 
 ### Step 2:pageRankReducer.java
@@ -205,27 +234,37 @@ public class PageRankReducer extends Reducer<Text, Text, Text, Text> {
     @Override
     protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         double sum = 0.0;
-        Node sourceNode = new Node();
+        Node sourceNode = null;
 
+        // 遍历每个传入的值，分为两种情况：
+        // 1. 包含节点的PageRank和链接关系
+        // 2. 传入的PageRank分配值
         for (Text value : values) {
             String content = value.toString();
             if (content.startsWith("1.0") || content.contains("\t")) {
-                // 这是该网页的节点数据
+                // 这是该网页的节点数据，解析为Node对象
                 sourceNode = Node.fromMR(content);
             } else {
-                // 这是传入的PageRank分值
+                // 这是传入的PageRank分值，将其累加到sum中
                 sum += Double.parseDouble(content);
             }
         }
 
-        // 计算新的PageRank值
-        double newPageRank = (1 - DAMPING_FACTOR) + DAMPING_FACTOR * sum;
-        sourceNode.setPageRank(newPageRank);
+        // 如果sourceNode为空，则不做任何处理（可能是错误情况）
+        if (sourceNode != null) {
+            // 计算新的PageRank值
+            double newPageRank = (1 - DAMPING_FACTOR) + DAMPING_FACTOR * sum;
+            sourceNode.setPageRank(newPageRank);
 
-        // 输出更新后的Node对象，包含新的PageRank值和链接关系
-        context.write(key, new Text(sourceNode.toString()));
+            // 输出更新后的Node对象，包含新的PageRank值和链接关系
+            context.write(key, new Text(sourceNode.toString()));
+        } else {
+            // 如果没有节点数据，则可以选择输出一个警告或者处理其他情况
+            System.err.println("Warning: Source node data missing for key: " + key.toString());
+        }
     }
 }
+
 
 ```
 

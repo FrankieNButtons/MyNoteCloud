@@ -133,3 +133,129 @@ object CollatzConjecture {
 }
 
 ```
+### 10000000内最长序列（DP优化）
+```Scala
+import scala.collection.mutable
+
+object CollatzConjecture {
+  val memo = mutable.Map[Long, Int](1L -> 1)
+
+  def collatzLength(n: Long): Int = {
+    memo.getOrElseUpdate(n, {
+      if (n % 2 == 0) {
+        1 + collatzLength(n / 2)
+      } else {
+
+        1 + collatzLength(3 * n + 1)
+      }
+    })
+  }
+
+  def main(args: Array[String]): Unit = {
+    val startTime = System.currentTimeMillis()
+
+    var longestSeqLength = 0
+    var startNumber = 0
+
+    for (i <- 1 to 10000000) {
+      val length = collatzLength(i)
+      if (length > longestSeqLength) {
+        longestSeqLength = length
+        startNumber = i
+      }
+
+
+      if (i % 1000000 == 0) {
+        println(s"已处理到 $i ...")
+      }
+    }
+
+    val endTime = System.currentTimeMillis()
+    val timeTaken = endTime - startTime
+
+    println(s"最长考拉兹序列的起始数是：$startNumber")
+    println(s"最长考拉兹序列的长度是：$longestSeqLength")
+    println(s"运行时间为：$timeTaken 毫秒")
+  }
+}
+```
+### 数组索引
+```Scala
+import scala.collection.mutable.ArrayBuffer
+
+object ArraySwap {
+  def swapAdjacentElements(arr: Array[Int]): ArrayBuffer[Int] = {
+    val buffer = ArrayBuffer.from(arr) // 将Array转为ArrayBuffer以便操作
+    for (i <- 0 until buffer.length - 1 by 2) {
+      // 每隔2个索引交换元素
+      val temp = buffer(i)
+      buffer(i) = buffer(i + 1)
+      buffer(i + 1) = temp
+    }
+    buffer
+  }
+
+  def main(args: Array[String]): Unit = {
+    val inputArray = Array(16, 99, 20, 48, 100, 66, 10, 3, 8)
+    val swappedArray = swapAdjacentElements(inputArray)
+    println(swappedArray.mkString(", ")) // 输出结果
+  }
+}
+```
+### 字符串合并
+```Scala
+object StringManipulation {
+  def main(args: Array[String]): Unit = {
+    println("请输入第一个字符串：")
+    val str1 = scala.io.StdIn.readLine()
+
+    println("请输入第二个字符串：")
+    val str2 = scala.io.StdIn.readLine()
+    
+    val mergedStr = (str1 + str2).toUpperCase
+
+    println(s"合并后的字符串为：$mergedStr")
+    println(s"合并后的字符串长度为：${mergedStr.length}")
+
+
+    val secondLastChar = mergedStr(mergedStr.length - 2)
+    println(s"倒数第二个字符为：$secondLastChar")
+
+
+    val trimmedStr = mergedStr.tail.init
+    println(s"去掉首尾字符的字符串为：$trimmedStr")
+  }
+}
+```
+### 文件IO
+```Scala
+import scala.io.Source
+import java.io.PrintWriter
+
+object FileProcessor {
+  def main(args: Array[String]): Unit = {
+    // 读取输入文件
+    val inputFile = Source.fromFile("data/1.txt")
+    val lines = inputFile.getLines()
+
+    // 创建输出文件
+    val out = new PrintWriter("data/output.txt")
+
+    // 处理每一行
+    for (line <- lines) {
+      // 去掉首尾空格并转换为大写
+      val trimmedLine = line.trim.toUpperCase
+
+      // 计算每行的长度
+      val length = trimmedLine.length
+
+      // 将每行的内容按要求格式化并写入到输出文件
+      out.write(s"$trimmedLine\t$length\n")
+    }
+
+    // 关闭文件
+    inputFile.close()
+    out.close()
+  }
+}
+```

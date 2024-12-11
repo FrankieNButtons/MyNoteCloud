@@ -6,7 +6,11 @@
 2. 分布式内存计算的统一分析引擎
 3. 可对任意类型的数据进行自定义分布式计算，包括文件、数据库等
 4. RDD是只读的，不能修改，但可以进行转换，转换得到新的RDD
-5. RDD是
+5. RDD的弹性
+    - 存储的弹性：内存磁盘自动切换
+    - 容错的弹性：出现丢失可以恢复（检查点或血缘重算）
+    - 计算的弹性：计算分层
+    - 分片的弹性：根据需要重新分片
 #### RDD的运行模式
 1. RDD的创建
 2. RDD的转换
@@ -22,7 +26,7 @@
    - Hadoop基于文件，而Spark基于内存。
    - Hadoop基于MapReduce，而Spark基于SparkCore。
 2. **主要基于DAG优化算子**
-2. **有比较丰富的框架**
+2. **有比较丰富的框架（重要）**
    - Spark Core
    - Spark SQL
    - Spark Streaming
@@ -36,4 +40,15 @@
 5. Mesos 集群模式（C++）
 6. Spark-Shell（基于Scala）
 ## Spark的编程模式
-### 
+### PySpark案例
+#### Map
+```python
+
+```
+#### FlatMap
+```python
+from pyspark import SparkConf, SparkContext
+
+
+```
+

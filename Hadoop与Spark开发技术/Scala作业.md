@@ -185,9 +185,8 @@ import scala.collection.mutable.ArrayBuffer
 
 object ArraySwap {
   def swapAdjacentElements(arr: Array[Int]): ArrayBuffer[Int] = {
-    val buffer = ArrayBuffer.from(arr) // 将Array转为ArrayBuffer以便操作
+    val buffer = ArrayBuffer(arr: _*) // 使用 ArrayBuffer(arr: _*)
     for (i <- 0 until buffer.length - 1 by 2) {
-      // 每隔2个索引交换元素
       val temp = buffer(i)
       buffer(i) = buffer(i + 1)
       buffer(i + 1) = temp
@@ -197,8 +196,9 @@ object ArraySwap {
 
   def main(args: Array[String]): Unit = {
     val inputArray = Array(16, 99, 20, 48, 100, 66, 10, 3, 8)
+    println(s"原数组为: ${ArrayBuffer(inputArray: _*).mkString(", ")}") 
     val swappedArray = swapAdjacentElements(inputArray)
-    println(swappedArray.mkString(", ")) // 输出结果
+    println(s"置换后的数组为: ${swappedArray.mkString(", ")}") 
   }
 }
 ```

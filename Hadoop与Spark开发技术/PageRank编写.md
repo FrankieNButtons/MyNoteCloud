@@ -178,6 +178,7 @@ public class Node implements Writable {
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
+import Node.Node;
 
 public class PageRankMapper extends Mapper<Text, Text, Text, Text> {
 

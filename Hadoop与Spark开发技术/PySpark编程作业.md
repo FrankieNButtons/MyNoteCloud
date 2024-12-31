@@ -97,7 +97,7 @@ for area, total_amount in order_amount_result:
 # 停止SparkSession
 spark.stop()
 ```
-#### Scala的Spark-Shell `SprkSQL`实战
+#### 基于Scala与Spark-Shell的 `SprkSQL`实战
 ```scala
 spark.sql("""
   SELECT d.theyear, MAX(SumOfAmount) AS MaxOrderAmount 

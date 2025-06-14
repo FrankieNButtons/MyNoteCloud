@@ -10,5 +10,5 @@
 
 ### 操作系统
 * [操作系统总笔记（你最想要的）](https://github.com/FrankieNButtons/MyNoteCloud/blob/main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0.md "期末复习绝佳拍档")
-* [一些可执行代码Demo库](https://github.com/FrankieNButtons/MyNoteCloud/blob/main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/codes "全是C，ChatGPT顺手写的，建议在Linux下使用")
+* [一些可执行代码Demo库](https://github.com/FrankieNButtons/MyNoteCloud/blob/main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/codes "不多，C、Rust都有，ChatGPT顺手写的，建议在Linux下使用")
 * 

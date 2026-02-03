@@ -1,0 +1,1 @@
+To Compare two method , we need to put two method and their results in the same benchmark rather than focusing on unique sample that is captured innew method, cause there are usually false positive result in new method.

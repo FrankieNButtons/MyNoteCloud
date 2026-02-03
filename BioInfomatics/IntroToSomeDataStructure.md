@@ -37,7 +37,7 @@ TTGACGTAGCTAGCTAGCATGCTAGCTAGC...
 
 #### From Command
 ```bash
-samtools faidx reference.fa
+Simply from sequencing process
 ```
 
 ---
@@ -153,6 +153,8 @@ GAM is a Protobuf-based format produced by VG for storing alignments of reads to
 ```bash
 vg map -x graph.xg -g graph.gcsa -f reads.fastq > aln.gam
 ```
+
+### `BIM`(, type: text)
 
 ---
 

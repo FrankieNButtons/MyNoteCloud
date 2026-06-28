@@ -1,4 +1,4 @@
-# Midnight in My Chest (feat. John De Sohn, Smith & Thell & Kasi)歌词与翻译
+  # Midnight in My Chest (feat. John De Sohn, Smith & Thell & Kasi)歌词与翻译
 
 I’ve been walking through the quiet
 我曾孤身穿越寂静
@@ -172,5 +172,5 @@ No i’m not afraid
 永远不再
 
 of the dark again.
-害怕那份黑暗
+惧怕那份黑暗
 

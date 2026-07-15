@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+  <!-- 坐标轴 -->
+  <line x1="90" y1="410" x2="650" y2="410" stroke="black" stroke-width="2" />
+  <line x1="90" y1="410" x2="90" y2="50" stroke="black" stroke-width="2" />
+
+  <!-- IS曲线：产出y越高，利率r越低 -->
+  <line x1="140" y1="100" x2="590" y2="360" stroke="#d94841" stroke-width="4" />
+
+  <!-- 文字标注 -->
+  <text x="655" y="416" font-size="22">y</text>
+  <text x="78" y="42" font-size="22">r</text>
+  <text x="595" y="367" font-size="22" fill="#d94841">IS</text>
+  <text x="355" y="438" font-size="18">y*</text>
+  <text x="58" y="236" font-size="18">r*</text>
+</svg>

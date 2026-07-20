@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="760" viewBox="0 0 1040 760">
+  <rect width="1040" height="760" fill="white" />
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" fill="#222">
+    <!-- 题设 -->
+    <text x="520" y="38" text-anchor="middle" font-size="24" font-weight="bold">IS曲线的四象限推导</text>
+    <text x="520" y="68" text-anchor="middle" font-size="18">i = 1250 − 250r　　c = 500 + 0.5y</text>
+
+    <!-- 第三象限：储蓄函数 s = y - c(y) -->
+    <text x="100" y="96" font-size="19" font-weight="bold" fill="#3478c7">第三象限：储蓄函数</text>
+    <line x1="100" y1="330" x2="460" y2="330" stroke="#333" stroke-width="2" />
+    <line x1="100" y1="330" x2="100" y2="100" stroke="#333" stroke-width="2" />
+    <text x="468" y="336" font-size="18">y</text>
+    <text x="90" y="94" font-size="18">s</text>
+    <text x="108" y="321" font-size="15">0</text>
+    <line x1="209" y1="330" x2="439" y2="100" stroke="#3478c7" stroke-width="4" />
+    <text x="255" y="130" font-size="18" fill="#3478c7">s = y − c(y) = 0.5y − 500</text>
+
+    <!-- 第三象限辅助线 -->
+    <g stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 6">
+      <line x1="100" y1="220" x2="319" y2="220" />
+      <line x1="100" y1="165" x2="373" y2="165" />
+      <line x1="100" y1="110" x2="428" y2="110" />
+      <line x1="319" y1="220" x2="319" y2="680" />
+      <line x1="373" y1="165" x2="373" y2="680" />
+      <line x1="428" y1="110" x2="428" y2="680" />
+    </g>
+    <text x="68" y="225" font-size="15">500</text>
+    <text x="68" y="170" font-size="15">750</text>
+    <text x="60" y="115" font-size="15">1000</text>
+    <text x="300" y="350" font-size="15">2000</text>
+    <text x="354" y="350" font-size="15">2500</text>
+    <text x="409" y="350" font-size="15">3000</text>
+
+    <!-- 第二象限：均衡条件 i = s -->
+    <text x="580" y="96" font-size="19" font-weight="bold" fill="#777">第二象限：均衡条件</text>
+    <line x1="580" y1="330" x2="940" y2="330" stroke="#333" stroke-width="2" />
+    <line x1="580" y1="330" x2="580" y2="100" stroke="#333" stroke-width="2" />
+    <text x="948" y="336" font-size="18">i</text>
+    <text x="570" y="94" font-size="18">s</text>
+    <text x="588" y="321" font-size="15">0</text>
+    <line x1="580" y1="330" x2="915" y2="100" stroke="#777" stroke-width="4" />
+    <text x="870" y="125" font-size="18" fill="#666">i = s</text>
+
+    <!-- 第二象限辅助线 -->
+    <g stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 6">
+      <line x1="580" y1="220" x2="739" y2="220" />
+      <line x1="580" y1="165" x2="819" y2="165" />
+      <line x1="580" y1="110" x2="898" y2="110" />
+      <line x1="739" y1="220" x2="739" y2="680" />
+      <line x1="819" y1="165" x2="819" y2="680" />
+      <line x1="898" y1="110" x2="898" y2="680" />
+    </g>
+    <text x="548" y="225" font-size="15">500</text>
+    <text x="548" y="170" font-size="15">750</text>
+    <text x="540" y="115" font-size="15">1000</text>
+    <text x="726" y="350" font-size="15">500</text>
+    <text x="806" y="350" font-size="15">750</text>
+    <text x="882" y="350" font-size="15">1000</text>
+
+    <!-- 第四象限：IS曲线 -->
+    <text x="100" y="426" font-size="19" font-weight="bold" fill="#d94841">第四象限：IS曲线</text>
+    <line x1="100" y1="680" x2="460" y2="680" stroke="#333" stroke-width="2" />
+    <line x1="100" y1="680" x2="100" y2="450" stroke="#333" stroke-width="2" />
+    <text x="468" y="686" font-size="18">y</text>
+    <text x="90" y="444" font-size="18">r</text>
+    <text x="108" y="671" font-size="15">0</text>
+    <line x1="291" y1="487" x2="455" y2="652" stroke="#d94841" stroke-width="4" />
+    <text x="125" y="472" font-size="18" fill="#d94841">IS：y = 3500 − 500r</text>
+
+    <!-- 第四象限辅助线 -->
+    <g stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 6">
+      <line x1="100" y1="625" x2="428" y2="625" />
+      <line x1="100" y1="570" x2="373" y2="570" />
+      <line x1="100" y1="515" x2="319" y2="515" />
+    </g>
+    <text x="80" y="630" font-size="15">1</text>
+    <text x="80" y="575" font-size="15">2</text>
+    <text x="80" y="520" font-size="15">3</text>
+    <text x="300" y="702" font-size="15">2000</text>
+    <text x="354" y="702" font-size="15">2500</text>
+    <text x="409" y="702" font-size="15">3000</text>
+
+    <!-- 第一象限：投资函数 -->
+    <text x="580" y="426" font-size="19" font-weight="bold" fill="#2f8f55">第一象限：投资函数</text>
+    <line x1="580" y1="680" x2="940" y2="680" stroke="#333" stroke-width="2" />
+    <line x1="580" y1="680" x2="580" y2="450" stroke="#333" stroke-width="2" />
+    <text x="948" y="686" font-size="18">i</text>
+    <text x="570" y="444" font-size="18">r</text>
+    <text x="588" y="671" font-size="15">0</text>
+    <line x1="660" y1="460" x2="930" y2="647" stroke="#2f8f55" stroke-width="4" />
+    <text x="740" y="472" font-size="18" fill="#2f8f55">i = 1250 − 250r</text>
+
+    <!-- 第一象限辅助线 -->
+    <g stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 6">
+      <line x1="580" y1="625" x2="898" y2="625" />
+      <line x1="580" y1="570" x2="819" y2="570" />
+      <line x1="580" y1="515" x2="739" y2="515" />
+    </g>
+    <text x="560" y="630" font-size="15">1</text>
+    <text x="560" y="575" font-size="15">2</text>
+    <text x="560" y="520" font-size="15">3</text>
+    <text x="726" y="702" font-size="15">500</text>
+    <text x="806" y="702" font-size="15">750</text>
+    <text x="882" y="702" font-size="15">1000</text>
+
+    <!-- 四象限的推导顺序 -->
+    <text x="973" y="550" text-anchor="middle" font-size="34" fill="#888">↑</text>
+    <text x="973" y="582" text-anchor="middle" font-size="14" fill="#777">①→②</text>
+    <text x="520" y="88" text-anchor="middle" font-size="34" fill="#888">←</text>
+    <text x="520" y="110" text-anchor="middle" font-size="14" fill="#777">②→③</text>
+    <text x="55" y="380" text-anchor="middle" font-size="34" fill="#888">↓</text>
+    <text x="55" y="410" text-anchor="middle" font-size="14" fill="#777">③→④</text>
+  </g>
+</svg>
